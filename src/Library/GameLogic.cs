@@ -54,6 +54,7 @@ namespace PII_Game_Of_Life
             }
         }
         gameBoard = cloneboard;
+        ReadFile.LoadBoard().Matrix = gameBoard;
         return gameBoard;
         }
     }
