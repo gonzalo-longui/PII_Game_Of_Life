@@ -9,7 +9,5 @@ namespace PII_Game_Of_Life
         {
             this.Matrix = matrix;
         }
-        
-
     }
 }
