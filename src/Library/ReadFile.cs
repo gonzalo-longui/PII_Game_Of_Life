@@ -5,7 +5,7 @@ namespace PII_Game_Of_Life
 {
     public class ReadFile
     {
-        public static bool[,] ReadInitialFile()
+        public static Board LoadBoard()
         {
             string url = @"../../assets/board.txt";
             string content = File.ReadAllText(url);
@@ -21,7 +21,8 @@ namespace PII_Game_Of_Life
                     }
                 }
             }
-            return board;
+            Board board1 = new Board(board);
+            return board1;
         }
         
     }

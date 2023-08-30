@@ -8,7 +8,7 @@ namespace PII_Game_Of_Life
     {
         public static void PrintBoard()
         {
-        bool[,] b = Board.ImplementGameLogic(); //variable que representa el tablero
+        bool[,] b = GameLogic.ImplementGameLogic(); //variable que representa el tablero
         int width = b.GetLength(0); //variabe que representa el ancho del tablero
         int height = b.GetLength(1); //variabe que representa altura del tablero
         while (true)
