@@ -7,7 +7,7 @@ namespace PII_Game_Of_Life
     {
         public static bool[,] ReadInitialFile()
         {
-            string url = "ruta del archivo";
+            string url = @"../../assets/board.txt";
             string content = File.ReadAllText(url);
             string[] contentLines = content.Split('\n');
             bool[,] board = new bool[contentLines.Length, contentLines[0].Length];
