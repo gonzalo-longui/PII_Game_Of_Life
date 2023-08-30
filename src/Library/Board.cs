@@ -4,11 +4,10 @@ namespace PII_Game_Of_Life
 {
     public class Board
     {
+        
+        public static bool[,] ImplementGameLogic()
+        {
         bool[,] gameBoard = ReadFile.ReadInitialFile();
-        public void ImplementGameLogic()
-        {
-        while (true)
-        {
         int boardWidth = gameBoard.GetLength(0);
         int boardHeight = gameBoard.GetLength(1);
 
@@ -55,7 +54,7 @@ namespace PII_Game_Of_Life
             }
         }
         gameBoard = cloneboard;
-        }
+        return gameBoard;
         }
     }
 }
