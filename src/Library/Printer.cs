@@ -6,9 +6,10 @@ namespace PII_Game_Of_Life
 {
     public class Printer
     {
-        public static void PrintBoard()
+        public static Board PrintBoard(Board board)
         {
-        bool[,] b = GameLogic.ImplementGameLogic(); //variable que representa el tablero
+        bool[,] b = board.Matrix; 
+        //variable que representa el tablero
         int width = b.GetLength(0); //variabe que representa el ancho del tablero
         int height = b.GetLength(1); //variabe que representa altura del tablero
         while (true)
@@ -32,9 +33,12 @@ namespace PII_Game_Of_Life
             }
             Console.WriteLine(s.ToString());
             //=================================================
-            //Invocar método para calcular siguiente generación
+            board = GameLogic.ImplementGameLogic(board);
+
+            string a = Console.ReadLine();
             //=================================================
             Thread.Sleep(300);
+            return board;
         }
         }
     }

@@ -5,11 +5,11 @@ namespace PII_Game_Of_Life
     public class GameLogic
     {
         
-        public static bool[,] ImplementGameLogic()
+        public static Board ImplementGameLogic(Board board)
         {
-        bool[,] gameBoard = ReadFile.LoadBoard().Matrix;
-        int boardWidth = gameBoard.GetLength(0);
-        int boardHeight = gameBoard.GetLength(1);
+        bool[,] b = board.Matrix; 
+        int boardWidth = b.GetLength(0);
+        int boardHeight = b.GetLength(1);
 
         bool[,] cloneboard = new bool[boardWidth, boardHeight];
         for (int x = 0; x < boardWidth; x++)
@@ -21,27 +21,27 @@ namespace PII_Game_Of_Life
                 {
                     for (int j = y-1;j<=y+1;j++)
                     {
-                        if(i>=0 && i<boardWidth && j>=0 && j < boardHeight && gameBoard[i,j])
+                        if(i>=0 && i<boardWidth && j>=0 && j < boardHeight && b[i,j])
                         {
                             aliveNeighbors++;
                         }
                     }
                 }
-                if(gameBoard[x,y])
+                if(b[x,y])
                 {
                     aliveNeighbors--;
                 }
-                if (gameBoard[x,y] && aliveNeighbors < 2)
+                if (b[x,y] && aliveNeighbors < 2)
                 {
                     //Celula muere por baja población
                     cloneboard[x,y] = false;
                 }
-                else if (gameBoard[x,y] && aliveNeighbors > 3)
+                else if (b[x,y] && aliveNeighbors > 3)
                 {
                     //Celula muere por sobrepoblación
                     cloneboard[x,y] = false;
                 }
-                else if (!gameBoard[x,y] && aliveNeighbors == 3)
+                else if (!b[x,y] && aliveNeighbors == 3)
                 {
                     //Celula nace por reproducción
                     cloneboard[x,y] = true;
@@ -49,13 +49,12 @@ namespace PII_Game_Of_Life
                 else
                 {
                     //Celula mantiene el estado que tenía
-                    cloneboard[x,y] = gameBoard[x,y];
+                    cloneboard[x,y] = b[x,y];
                 }
             }
         }
-        gameBoard = cloneboard;
-        ReadFile.LoadBoard().Matrix = gameBoard;
-        return gameBoard;
+        Board newBoard = new Board(cloneboard);
+        return newBoard;
         }
     }
 }

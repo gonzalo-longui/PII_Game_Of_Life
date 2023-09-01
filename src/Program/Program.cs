@@ -6,7 +6,13 @@ namespace PII_Game_Of_Life
     {
         static void Main(string[] args)
         {
-            Printer.PrintBoard();
+            Board board1 = ReadFile.LoadBoard();
+            while (true)
+            {
+                board1 = Printer.PrintBoard(board1);
+
+            }
+            
         }
     }
 }
