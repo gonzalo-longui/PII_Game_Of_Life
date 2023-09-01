@@ -10,9 +10,7 @@ namespace PII_Game_Of_Life
             while (true)
             {
                 board1 = Printer.PrintBoard(board1);
-
             }
-            
         }
     }
 }
